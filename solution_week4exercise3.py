@@ -61,7 +61,7 @@ for uptime in (uptime1, uptime2, uptime3, uptime4):
     # Extract the hostname from uptime_fields
     (hostname, time_field1) = uptime_fields[0].split(' uptime is ')
     uptime_fields[0] = time_field1
-
+    
     if DEBUG:
         print hostname
         print uptime_fields
@@ -69,6 +69,7 @@ for uptime in (uptime1, uptime2, uptime3, uptime4):
 
     # Two solutions - solution1: long but easier to read
     uptime_seconds = 0
+
     for time_field in uptime_fields:
 
         if 'year' in time_field:

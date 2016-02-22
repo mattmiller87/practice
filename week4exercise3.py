@@ -19,6 +19,12 @@ Print the dictionary to standard output.
 
 import re
 
+MINUTE_SECONDS = 60
+HOUR_SECONDS = 60 * MINUTE_SECONDS
+DAY_SECONDS = 24 * HOUR_SECONDS
+WEEK_SECONDS = 7 * DAY_SECONDS
+YEAR_SECONDS = 365 * DAY_SECONDS
+
 uptime1 = 'twb-sf-881 uptime is 6 weeks, 4 days, 2 hours, 25 minutes'
 uptime2 = '3750RJ uptime is 1 hour, 29 minutes'
 uptime3 = 'CATS3560 uptime is 8 weeks, 4 days, 18 hours, 16 minutes'
@@ -26,56 +32,47 @@ uptime4 = 'rtr1 uptime is 5 years, 18 weeks, 8 hours, 23 minutes'
 
 list_of_uptime = [uptime1, uptime2, uptime3, uptime4]
 
+time_dict = {}
 for uptime in list_of_uptime: #loop through list_of_uptime
-	split_device_and_time = uptime.split(" uptime is ")
-	hostname,time_with_words = split_device_and_time
+	hostname,time_with_words = uptime.split(" uptime is ")
+	time_with_words_split = time_with_words.split(",")
 
-	for time in time_with_words_join:
-		print time
+	uptime_seconds = 0
+	for time in time_with_words_split:
 		if "year" in time:
-			time_split = time.split(" year")
-			year,unneeded_info = time_split
-			print year
+			(year,unneeded_info) = time.split(" year")
+			try:
+				uptime_seconds += int(year) * YEAR_SECONDS
+			except ValueError as e:
+				print "Error: Year was not an integer"
 		elif "week" in time:
-			time_split = time.split(" week")
-			week,unneeded_info = time_split
-			print week
+			(week,unneeded_info) = time.split(" week")
+			try:
+				uptime_seconds += int(week) * WEEK_SECONDS
+			except ValueError as e:
+				print "Error: Week was not an integer"
 		elif "day" in time:
 			time_split = time.split(" day")
 			day,unneeded_info = time_split
-			print day
+			try:
+				uptime_seconds += int(day) * DAY_SECONDS
+			except ValueError as e:
+				print "Error: Day was not an integer"
 		elif "hour" in time:
 			time_split = time.split(" hour")
 			hour,unneeded_info = time_split
-			print hour
+			try:
+				uptime_seconds += int(hour) * HOUR_SECONDS
+			except ValueError as e:
+				print "Error: Hour was not an integer"
 		elif "minute" in time:
 			time_split = time.split(" minute")
 			minute,unneeded_info = time_split
-			print minute
+			try:
+				uptime_seconds += int(minute) * MINUTE_SECONDS
+			except ValueError as e:
+				print "Error: Minute was not an integer"
+			
+	time_dict[hostname] = uptime_seconds
 
-'''
-
-#from before
-import re
-
-entry1 = "*  1.0.192.0/18   157.130.10.233        0 701 38040 9737 i"
-entry2 = "*  1.1.1.0/24       157.130.10.233        0 701 1299 15169 i"
-entry3 = "*  1.1.42.0/24     157.130.10.233        0 701 9505 17408 2.1465 i"
-entry4 = "*  1.0.192.0/19   157.130.10.233        0 701 6762 6762 6762 6762 38040 9737 i"
-
-list_of_entries = [entry1, entry2, entry3, entry4]
-
-print "%-20s %-20s" % ("IP PREFIX","AS PATH") #table header printed
-
-for item in list_of_entries: #loop through list_of_entries
-	entry_comma = re.sub(r'  +', ",", item) #replace 2 spaces or more with comma
-	split_entry = entry_comma.split(",")
-	dict = {
-		'star': split_entry[0], #[0] = *
-		'ip_prefix': split_entry[1], #[1] = 1.0.192.0/18
-		'next_hop': split_entry[2], #[2] = 157.130.10.233
-		'as_path': split_entry[3] #[3] = 0 701 9505 17408 2.1465 i
-	}
-	print "%-20s %-20s" % (dict['ip_prefix'],dict['as_path']) #table information printed
-
-'''
+print time_dict
