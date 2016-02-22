@@ -29,8 +29,29 @@ list_of_uptime = [uptime1, uptime2, uptime3, uptime4]
 for uptime in list_of_uptime: #loop through list_of_uptime
 	split_device_and_time = uptime.split(" uptime is ")
 	hostname,time_with_words = split_device_and_time
-	print hostname + ": " + time_with_words
 
+	for time in time_with_words_join:
+		print time
+		if "year" in time:
+			time_split = time.split(" year")
+			year,unneeded_info = time_split
+			print year
+		elif "week" in time:
+			time_split = time.split(" week")
+			week,unneeded_info = time_split
+			print week
+		elif "day" in time:
+			time_split = time.split(" day")
+			day,unneeded_info = time_split
+			print day
+		elif "hour" in time:
+			time_split = time.split(" hour")
+			hour,unneeded_info = time_split
+			print hour
+		elif "minute" in time:
+			time_split = time.split(" minute")
+			minute,unneeded_info = time_split
+			print minute
 
 '''
 
