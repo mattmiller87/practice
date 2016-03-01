@@ -18,15 +18,15 @@ connected to.
 For example, the dictionary entries for 'R1' and 'SW1' should look
 as follows:
 'R1': {'IP': '10.1.1.1',
-        'adjacent_devices': ['SW1'],
-        'device_type': 'Router',
-        'model': '881',
-        'vendor': 'Cisco'},
+		'adjacent_devices': ['SW1'],
+		'device_type': 'Router',
+		'model': '881',
+		'vendor': 'Cisco'},
 'SW1': {'IP': '10.1.1.22',
-         'adjacent_devices': ['R1', 'R2', 'R3', 'R4', 'R5'],
-         'device_type': 'Switch',
-         'model': 'WS-C2950-24',
-         'vendor': 'cisco'},
+		 'adjacent_devices': ['R1', 'R2', 'R3', 'R4', 'R5'],
+		 'device_type': 'Switch',
+		 'model': 'WS-C2950-24',
+		 'vendor': 'cisco'},
 For output, print network_devices to standard output.
 '''
 import re
@@ -35,24 +35,44 @@ from week5exercise_data import *
 
 # run pull_cdp_information_into_dict and then print that using to_screen
 def task_1():
-	dictionary1 = pull_cdp_information_into_dict()
-	dictionary2 = cdp_neighbors_to_dict()
-	data = combine_dictionaries(dictionary1,dictionary2)
+	dictionary1 = pull_cdp_information_into_dict(cdp_neighbors_detail_list())
+	dictionary2 = do_next_thing(cdp_neighbors_list())
+	#to_screen(dictionary2)
+	data = merge_nested_dictionaries(dictionary1,dictionary2)
 	to_screen(data)
-
 
 #this function prints anything to screen
 def to_screen(data):
 	pprint.pprint(data)
 
-def combine_dictionaries(dictionary1,dictionary2):
+#provide this function with nested dictionaries where the first level dictionary keys might match but the second level key,value pair needs to be added to the first dictionary or new records need to be created
+#{'R1': {'device_type': 'Router','ip': '10.1.1.1','model': '881','vendor': 'Cisco'},
+# 'R2': {'device_type': 'Router','ip': '10.1.1.2','model': '881','vendor': 'Cisco'},
+# 'SW1': {'device_type': 'Switch','ip': '10.1.1.22','model': 'WS-C2950-24','vendor': 'cisco'}}
+#{'R1': {'adjacent_devices': ['SW1']},
+# 'R2': {'adjacent_devices': ['SW1']},
+# 'R3': {'adjacent_devices': ['SW1']},
+# 'SW1': {'adjacent_devices': ['R1', 'R2', 'R3', 'R4', 'R5']}}
+#return is single dictionary with all second level dictionary key,value pairs
+#{'R1': {'adjacent_devices': ['SW1'],'device_type': 'Router','ip': '10.1.1.1','model': '881','vendor': 'Cisco'},
+# 'R2': {'adjacent_devices': ['SW1'],'device_type': 'Router','ip': '10.1.1.2','model': '881','vendor': 'Cisco'},
+# 'R3': {'adjacent_devices': ['SW1']},
+# 'SW1': {'adjacent_devices': ['R1', 'R2', 'R3', 'R4', 'R5'],'device_type': 'Switch','ip': '10.1.1.22','model': 'WS-C2950-24','vendor': 'cisco'}}
+def merge_nested_dictionaries(dictionary1,dictionary2):
 	dict = {}
-	for key in (dictionary1.viewkeys() | dictionary1.viewkeys()):
-		if key in dictionary1: dict.setdefault(key, []).append(dictionary1[key])
-		if key in dictionary2: dict.setdefault(key, []).append(dictionary2[key])
+	for key,value in dictionary1.items(): #sort through dictionary1 keys
+		dict[key] = value #keep dictionary1 key,value pairs
+		if key in dictionary2.keys(): #if key in dictionary1 matches keys from dictionary2
+			for dict2key,dict2vlaue in dictionary2.items(): #sort through records in dictionary2
+				if key == dict2key: #if the keys are the same
+					for k,v in dict2vlaue.items(): #sort through the second level dictionary in dictionary2
+						dict[key][k] = v #adds dictionary2's key,value pairs to existing key from dictionary1
+	for key,value in dictionary2.items(): #sort through dictionary2 keys
+		if key not in dictionary1.keys(): #if keys in dictionary2 do not match keys from dictionary1
+			dict[key] = value #create a new record using dictionary2's key
 	return dict
 
-def cdp_neighbors_to_dict():
+def cdp_neighbors_list():
 	#combine the show cdp neighbors into 1 list
 	cdp_neighbors = (
 		sw1_show_cdp_neighbors,
@@ -61,11 +81,14 @@ def cdp_neighbors_to_dict():
 		r3_show_cdp_neighbors,
 		r4_show_cdp_neighbors,
 		r5_show_cdp_neighbors,
+		r6_show_cdp_neighbors,
 		)
+	return cdp_neighbors
 
+def do_next_thing(info):
 	network_devices = {} #make a blank dict
 
-	for data in cdp_neighbors:
+	for data in info:
 		data_split = data.split("\n")
 		hostname = ""
 
@@ -76,24 +99,28 @@ def cdp_neighbors_to_dict():
 
 				if not hostname in network_devices:
 					network_devices[hostname] = {}
+
 		(junk,content_messy) = data.split("Port ID")
 		content_messy_join = "".join(content_messy)
 		content_table = content_messy_join.strip()
 		content_table_list = content_table.split("\n")
+
 		network_devices[hostname] = {}
 		list = []
+		
 		for line in content_table_list:
 			clean_cdp = list_to_dynamic_dict(format_whitespace_column_data(line))
 			list.append(clean_cdp)
+		
 		adjacent_devices_list = []
 		for item in list:
 			adjacent_devices_list.append(item[1])
+		
 		network_devices[hostname]['adjacent_devices'] = adjacent_devices_list
 
 	return network_devices
 
-
-def pull_cdp_information_into_dict():
+def cdp_neighbors_detail_list():
 	#combine the show cdp neighbors detail into 1 list
 	cdp_neighbors_details = (
 		sw1_show_cdp_neighbors_detail,
@@ -103,11 +130,12 @@ def pull_cdp_information_into_dict():
 		r4_show_cdp_neighbors_detail,
 		r5_show_cdp_neighbors_detail,
 		)
+	return cdp_neighbors_details
 
-
+def pull_cdp_information_into_dict(info):
 	network_devices = {} #make a blank dict
 
-	for data in cdp_neighbors_details:
+	for data in info:
 		data_split = data.split("\n")
 
 		hostname = "" #set hostname to blank for this loop

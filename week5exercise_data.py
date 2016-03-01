@@ -13,7 +13,7 @@ R2                    Fas 0/12              123            R S I           881  
 R3                    Fas 0/13              129            R S I           881          Fas 1
 R4                    Fas 0/14              173            R S I           881          Fas 1
 R5                    Fas 0/15              144            R S I           881          Fas 1
-
+R6                    Fas 0/15              144            R S I           881          Fas 1
 '''
 
 sw1_show_cdp_neighbors_detail = '''
@@ -300,4 +300,13 @@ Native VLAN: 1
 Duplex: full
 
 '''
+r6_show_cdp_neighbors = '''
 
+R6>show cdp neighbors 
+Capability Codes: R - Router, T - Trans Bridge, B - Source Route Bridge
+                  S - Switch, H - Host, I - IGMP, r - Repeater
+
+Device ID        Local Intrfce     Holdtme    Capability  Platform  Port ID
+SW2              Fas 1              150          S I      WS-C2950- Fas 0/11
+
+'''
