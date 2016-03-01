@@ -132,6 +132,7 @@ def cdp_neighbors_detail_list():
 		)
 	return cdp_neighbors_details
 
+#basically stole this from solution
 def pull_cdp_information_into_dict(info):
 	network_devices = {} #make a blank dict
 
