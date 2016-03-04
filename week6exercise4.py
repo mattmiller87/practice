@@ -1,0 +1,3 @@
+'''
+4. Create a function using your dotted decimal to binary conversion code from Class3, exercise1. In the function--do not prompt for input and do not print to standard output. The function should take one variable 'ip_address' and should return the IP address in dotted binary format always padded to eight binary digits (for example, 00001010.01011000.00010001.00010111). You might want to create other functions as well (for example, the zero-padding to eight binary digits).
+'''
