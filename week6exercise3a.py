@@ -9,12 +9,14 @@ checking in the function--no prompting for input, no printing to standard output
 and test it (use both 'import x' and 'from x import y').
 
 '''
-def return_valid_ip():
+
+ip_address = "10.20.30.10"
+
+def return_valid_ip(ip_addr):
 
 	running = True #variable that can be changed to stop the while loop
 
 	while running:
-		ip_addr = raw_input("Please enter an IP address: ")
 		ip_parts = ip_addr.split(".")
 		valid_ip = True #variable that can be changed to force stay within while loop
 		
@@ -64,4 +66,5 @@ def return_valid_ip():
 		else:
 			print "Error: IP address did not qualify as valid."
 
-	return "\nPass: The is address: %s is valid." % ip_addr
+	return ip_addr
+
