@@ -28,4 +28,41 @@ Hello: 10
 Dead: 40
 '''
 
+import re
 
+def tasks():
+	a_file = "ospf_data/ospf_data.txt"
+	data = extract_ospf_information(a_file)
+	print_dictionary(data)
+
+def extract_ospf_information(files):
+	with open(files, "rU") as a_file:
+		ospf_dict = {}
+		for line in a_file:
+			interface = re.search(r'^(.+) is up, line protocol is up', line )
+			ospf_ip_area = re.search(r"Internet Address (.+)/.+, Area (.+),", line)
+			ospf_type_cost = re.search(r'Network Type (.+), Cost: (.+)', line )
+			ospf_timers = re.search(r'Timer intervals configured, Hello (.+), Dead (.+?),', line )
+
+			if interface:
+				ospf_dict['Int'] = interface.group(1)
+			if ospf_ip_area:
+				ospf_dict['IP'] = ospf_ip_area.group(1)
+				ospf_dict['Area'] = ospf_ip_area.group(2)
+			if ospf_type_cost:
+				ospf_dict['Type'] = ospf_type_cost.group(1)
+				ospf_dict['Cost'] = ospf_type_cost.group(2)
+			if ospf_timers:
+				ospf_dict['Hello'] = ospf_timers.group(1)
+				ospf_dict['Dead'] = ospf_timers.group(2)
+
+		return ospf_dict
+
+def print_dictionary(a_dict):
+	order = ('Int', 'IP', 'Area', 'Type', 'Cost', 'Hello', 'Dead')
+	for k in order:
+		print "%10s: %-20s" % (k, a_dict[k])
+
+
+
+tasks()

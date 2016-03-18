@@ -16,3 +16,9 @@ Using the glob library you can more easily open a set of files.  Notice how I us
 
 >>>> END CODE <<<<
 '''
+
+from glob import glob
+from pprint import pprint
+
+cdp_files = glob('cdp_data/*_cdp.txt')
+pprint(cdp_files)
