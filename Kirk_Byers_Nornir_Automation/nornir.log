@@ -1,0 +1,350 @@
+2022-02-04 13:33:44,570 -  nornir.core -     INFO -        run() - Running task 'my_first_task' with args {} on 1 hosts
+2022-02-04 13:49:40,763 -  nornir.core -     INFO -        run() - Running task 'my_task' with args {} on 4 hosts
+2022-02-04 13:50:27,504 -  nornir.core -     INFO -        run() - Running task 'my_task' with args {} on 4 hosts
+2022-03-02 11:48:58,916 -  nornir.core -     INFO -        run() - Running task 'my_task' with args {} on 4 hosts
+2022-03-02 11:55:23,481 -  nornir.core -     INFO -        run() - Running task 'my_task' with args {} on 4 hosts
+2022-03-02 11:55:23,484 - nornir.core.task -    ERROR -      start() - Host 'localhost2': task 'my_task' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/matt.miller/Documents/git/practice/Kirk_Byers_Nornir_Automation/env/lib/python3.8/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "week1exercise.py", line 33, in my_task
+    print("dns1: {}".format(host_data.data.dns1))
+AttributeError: 'dict' object has no attribute 'dns1'
+
+2022-03-02 11:55:23,484 - nornir.core.task -    ERROR -      start() - Host 'localhost1': task 'my_task' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/matt.miller/Documents/git/practice/Kirk_Byers_Nornir_Automation/env/lib/python3.8/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "week1exercise.py", line 33, in my_task
+    print("dns1: {}".format(host_data.data.dns1))
+AttributeError: 'dict' object has no attribute 'dns1'
+
+2022-03-02 11:55:23,485 - nornir.core.task -    ERROR -      start() - Host 'localhost3': task 'my_task' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/matt.miller/Documents/git/practice/Kirk_Byers_Nornir_Automation/env/lib/python3.8/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "week1exercise.py", line 33, in my_task
+    print("dns1: {}".format(host_data.data.dns1))
+AttributeError: 'dict' object has no attribute 'dns1'
+
+2022-03-02 11:55:23,485 - nornir.core.task -    ERROR -      start() - Host 'localhost4': task 'my_task' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/matt.miller/Documents/git/practice/Kirk_Byers_Nornir_Automation/env/lib/python3.8/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "week1exercise.py", line 33, in my_task
+    print("dns1: {}".format(host_data.data.dns1))
+AttributeError: 'dict' object has no attribute 'dns1'
+
+2022-03-02 11:55:40,992 -  nornir.core -     INFO -        run() - Running task 'my_task' with args {} on 4 hosts
+2022-03-02 11:55:40,996 - nornir.core.task -    ERROR -      start() - Host 'localhost1': task 'my_task' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/matt.miller/Documents/git/practice/Kirk_Byers_Nornir_Automation/env/lib/python3.8/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "week1exercise.py", line 33, in my_task
+    print("dns1: {}".format(host_data.dns1))
+  File "/Users/matt.miller/Documents/git/practice/Kirk_Byers_Nornir_Automation/env/lib/python3.8/site-packages/nornir/core/inventory.py", line 368, in __getattribute__
+    return object.__getattribute__(self, name)
+AttributeError: 'Host' object has no attribute 'dns1'
+
+2022-03-02 11:55:40,997 - nornir.core.task -    ERROR -      start() - Host 'localhost3': task 'my_task' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/matt.miller/Documents/git/practice/Kirk_Byers_Nornir_Automation/env/lib/python3.8/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "week1exercise.py", line 33, in my_task
+    print("dns1: {}".format(host_data.dns1))
+  File "/Users/matt.miller/Documents/git/practice/Kirk_Byers_Nornir_Automation/env/lib/python3.8/site-packages/nornir/core/inventory.py", line 368, in __getattribute__
+    return object.__getattribute__(self, name)
+AttributeError: 'Host' object has no attribute 'dns1'
+
+2022-03-02 11:55:40,997 - nornir.core.task -    ERROR -      start() - Host 'localhost4': task 'my_task' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/matt.miller/Documents/git/practice/Kirk_Byers_Nornir_Automation/env/lib/python3.8/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "week1exercise.py", line 33, in my_task
+    print("dns1: {}".format(host_data.dns1))
+  File "/Users/matt.miller/Documents/git/practice/Kirk_Byers_Nornir_Automation/env/lib/python3.8/site-packages/nornir/core/inventory.py", line 368, in __getattribute__
+    return object.__getattribute__(self, name)
+AttributeError: 'Host' object has no attribute 'dns1'
+
+2022-03-02 11:55:40,997 - nornir.core.task -    ERROR -      start() - Host 'localhost2': task 'my_task' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/matt.miller/Documents/git/practice/Kirk_Byers_Nornir_Automation/env/lib/python3.8/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "week1exercise.py", line 33, in my_task
+    print("dns1: {}".format(host_data.dns1))
+  File "/Users/matt.miller/Documents/git/practice/Kirk_Byers_Nornir_Automation/env/lib/python3.8/site-packages/nornir/core/inventory.py", line 368, in __getattribute__
+    return object.__getattribute__(self, name)
+AttributeError: 'Host' object has no attribute 'dns1'
+
+2022-03-02 11:57:10,745 -  nornir.core -     INFO -        run() - Running task 'my_task' with args {} on 4 hosts
+2022-03-02 11:57:10,750 - nornir.core.task -    ERROR -      start() - Host 'localhost1': task 'my_task' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/matt.miller/Documents/git/practice/Kirk_Byers_Nornir_Automation/env/lib/python3.8/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "week1exercise.py", line 35, in my_task
+    print("dns1: {}".format(host_data.dns1))
+  File "/Users/matt.miller/Documents/git/practice/Kirk_Byers_Nornir_Automation/env/lib/python3.8/site-packages/nornir/core/inventory.py", line 368, in __getattribute__
+    return object.__getattribute__(self, name)
+AttributeError: 'Host' object has no attribute 'dns1'
+
+2022-03-02 11:57:10,750 - nornir.core.task -    ERROR -      start() - Host 'localhost3': task 'my_task' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/matt.miller/Documents/git/practice/Kirk_Byers_Nornir_Automation/env/lib/python3.8/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "week1exercise.py", line 35, in my_task
+    print("dns1: {}".format(host_data.dns1))
+  File "/Users/matt.miller/Documents/git/practice/Kirk_Byers_Nornir_Automation/env/lib/python3.8/site-packages/nornir/core/inventory.py", line 368, in __getattribute__
+    return object.__getattribute__(self, name)
+AttributeError: 'Host' object has no attribute 'dns1'
+
+2022-03-02 11:57:10,751 - nornir.core.task -    ERROR -      start() - Host 'localhost2': task 'my_task' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/matt.miller/Documents/git/practice/Kirk_Byers_Nornir_Automation/env/lib/python3.8/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "week1exercise.py", line 35, in my_task
+    print("dns1: {}".format(host_data.dns1))
+  File "/Users/matt.miller/Documents/git/practice/Kirk_Byers_Nornir_Automation/env/lib/python3.8/site-packages/nornir/core/inventory.py", line 368, in __getattribute__
+    return object.__getattribute__(self, name)
+AttributeError: 'Host' object has no attribute 'dns1'
+
+2022-03-02 11:57:10,751 - nornir.core.task -    ERROR -      start() - Host 'localhost4': task 'my_task' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/matt.miller/Documents/git/practice/Kirk_Byers_Nornir_Automation/env/lib/python3.8/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "week1exercise.py", line 35, in my_task
+    print("dns1: {}".format(host_data.dns1))
+  File "/Users/matt.miller/Documents/git/practice/Kirk_Byers_Nornir_Automation/env/lib/python3.8/site-packages/nornir/core/inventory.py", line 368, in __getattribute__
+    return object.__getattribute__(self, name)
+AttributeError: 'Host' object has no attribute 'dns1'
+
+2022-03-02 11:57:25,495 -  nornir.core -     INFO -        run() - Running task 'my_task' with args {} on 4 hosts
+2022-03-02 11:57:25,499 - nornir.core.task -    ERROR -      start() - Host 'localhost1': task 'my_task' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/matt.miller/Documents/git/practice/Kirk_Byers_Nornir_Automation/env/lib/python3.8/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "week1exercise.py", line 35, in my_task
+    print("dns1: {}".format(host_data.dns1))
+  File "/Users/matt.miller/Documents/git/practice/Kirk_Byers_Nornir_Automation/env/lib/python3.8/site-packages/nornir/core/inventory.py", line 368, in __getattribute__
+    return object.__getattribute__(self, name)
+AttributeError: 'Host' object has no attribute 'dns1'
+
+2022-03-02 11:57:25,499 - nornir.core.task -    ERROR -      start() - Host 'localhost4': task 'my_task' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/matt.miller/Documents/git/practice/Kirk_Byers_Nornir_Automation/env/lib/python3.8/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "week1exercise.py", line 35, in my_task
+    print("dns1: {}".format(host_data.dns1))
+  File "/Users/matt.miller/Documents/git/practice/Kirk_Byers_Nornir_Automation/env/lib/python3.8/site-packages/nornir/core/inventory.py", line 368, in __getattribute__
+    return object.__getattribute__(self, name)
+AttributeError: 'Host' object has no attribute 'dns1'
+
+2022-03-02 11:57:25,500 - nornir.core.task -    ERROR -      start() - Host 'localhost2': task 'my_task' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/matt.miller/Documents/git/practice/Kirk_Byers_Nornir_Automation/env/lib/python3.8/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "week1exercise.py", line 35, in my_task
+    print("dns1: {}".format(host_data.dns1))
+  File "/Users/matt.miller/Documents/git/practice/Kirk_Byers_Nornir_Automation/env/lib/python3.8/site-packages/nornir/core/inventory.py", line 368, in __getattribute__
+    return object.__getattribute__(self, name)
+AttributeError: 'Host' object has no attribute 'dns1'
+
+2022-03-02 11:57:25,500 - nornir.core.task -    ERROR -      start() - Host 'localhost3': task 'my_task' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/matt.miller/Documents/git/practice/Kirk_Byers_Nornir_Automation/env/lib/python3.8/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "week1exercise.py", line 35, in my_task
+    print("dns1: {}".format(host_data.dns1))
+  File "/Users/matt.miller/Documents/git/practice/Kirk_Byers_Nornir_Automation/env/lib/python3.8/site-packages/nornir/core/inventory.py", line 368, in __getattribute__
+    return object.__getattribute__(self, name)
+AttributeError: 'Host' object has no attribute 'dns1'
+
+2022-03-02 11:59:25,356 -  nornir.core -     INFO -        run() - Running task 'my_task' with args {} on 4 hosts
+2022-03-02 11:59:25,361 - nornir.core.task -    ERROR -      start() - Host 'localhost3': task 'my_task' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/matt.miller/Documents/git/practice/Kirk_Byers_Nornir_Automation/env/lib/python3.8/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "week1exercise.py", line 35, in my_task
+    print("dns1: {}".format(host_data.dns1))
+  File "/Users/matt.miller/Documents/git/practice/Kirk_Byers_Nornir_Automation/env/lib/python3.8/site-packages/nornir/core/inventory.py", line 368, in __getattribute__
+    return object.__getattribute__(self, name)
+AttributeError: 'Host' object has no attribute 'dns1'
+
+2022-03-02 11:59:25,361 - nornir.core.task -    ERROR -      start() - Host 'localhost2': task 'my_task' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/matt.miller/Documents/git/practice/Kirk_Byers_Nornir_Automation/env/lib/python3.8/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "week1exercise.py", line 35, in my_task
+    print("dns1: {}".format(host_data.dns1))
+  File "/Users/matt.miller/Documents/git/practice/Kirk_Byers_Nornir_Automation/env/lib/python3.8/site-packages/nornir/core/inventory.py", line 368, in __getattribute__
+    return object.__getattribute__(self, name)
+AttributeError: 'Host' object has no attribute 'dns1'
+
+2022-03-02 11:59:25,361 - nornir.core.task -    ERROR -      start() - Host 'localhost4': task 'my_task' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/matt.miller/Documents/git/practice/Kirk_Byers_Nornir_Automation/env/lib/python3.8/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "week1exercise.py", line 35, in my_task
+    print("dns1: {}".format(host_data.dns1))
+  File "/Users/matt.miller/Documents/git/practice/Kirk_Byers_Nornir_Automation/env/lib/python3.8/site-packages/nornir/core/inventory.py", line 368, in __getattribute__
+    return object.__getattribute__(self, name)
+AttributeError: 'Host' object has no attribute 'dns1'
+
+2022-03-02 11:59:25,362 - nornir.core.task -    ERROR -      start() - Host 'localhost1': task 'my_task' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/matt.miller/Documents/git/practice/Kirk_Byers_Nornir_Automation/env/lib/python3.8/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "week1exercise.py", line 35, in my_task
+    print("dns1: {}".format(host_data.dns1))
+  File "/Users/matt.miller/Documents/git/practice/Kirk_Byers_Nornir_Automation/env/lib/python3.8/site-packages/nornir/core/inventory.py", line 368, in __getattribute__
+    return object.__getattribute__(self, name)
+AttributeError: 'Host' object has no attribute 'dns1'
+
+2022-03-02 12:00:41,534 -  nornir.core -     INFO -        run() - Running task 'my_task' with args {} on 4 hosts
+2022-03-02 12:00:41,537 - nornir.core.task -    ERROR -      start() - Host 'localhost1': task 'my_task' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/matt.miller/Documents/git/practice/Kirk_Byers_Nornir_Automation/env/lib/python3.8/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "week1exercise.py", line 33, in my_task
+    print("hostname: {}".format(host_data.hostname))
+NameError: name 'host_data' is not defined
+
+2022-03-02 12:00:41,537 - nornir.core.task -    ERROR -      start() - Host 'localhost3': task 'my_task' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/matt.miller/Documents/git/practice/Kirk_Byers_Nornir_Automation/env/lib/python3.8/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "week1exercise.py", line 33, in my_task
+    print("hostname: {}".format(host_data.hostname))
+NameError: name 'host_data' is not defined
+
+2022-03-02 12:00:41,537 - nornir.core.task -    ERROR -      start() - Host 'localhost4': task 'my_task' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/matt.miller/Documents/git/practice/Kirk_Byers_Nornir_Automation/env/lib/python3.8/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "week1exercise.py", line 33, in my_task
+    print("hostname: {}".format(host_data.hostname))
+NameError: name 'host_data' is not defined
+
+2022-03-02 12:00:41,537 - nornir.core.task -    ERROR -      start() - Host 'localhost2': task 'my_task' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/matt.miller/Documents/git/practice/Kirk_Byers_Nornir_Automation/env/lib/python3.8/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "week1exercise.py", line 33, in my_task
+    print("hostname: {}".format(host_data.hostname))
+NameError: name 'host_data' is not defined
+
+2022-03-02 12:01:12,424 -  nornir.core -     INFO -        run() - Running task 'my_task' with args {} on 4 hosts
+2022-03-02 12:01:12,430 - nornir.core.task -    ERROR -      start() - Host 'localhost1': task 'my_task' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/matt.miller/Documents/git/practice/Kirk_Byers_Nornir_Automation/env/lib/python3.8/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "week1exercise.py", line 36, in my_task
+    print("dns1: {}".format(host.dns1))
+  File "/Users/matt.miller/Documents/git/practice/Kirk_Byers_Nornir_Automation/env/lib/python3.8/site-packages/nornir/core/inventory.py", line 368, in __getattribute__
+    return object.__getattribute__(self, name)
+AttributeError: 'Host' object has no attribute 'dns1'
+
+2022-03-02 12:01:12,430 - nornir.core.task -    ERROR -      start() - Host 'localhost3': task 'my_task' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/matt.miller/Documents/git/practice/Kirk_Byers_Nornir_Automation/env/lib/python3.8/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "week1exercise.py", line 36, in my_task
+    print("dns1: {}".format(host.dns1))
+  File "/Users/matt.miller/Documents/git/practice/Kirk_Byers_Nornir_Automation/env/lib/python3.8/site-packages/nornir/core/inventory.py", line 368, in __getattribute__
+    return object.__getattribute__(self, name)
+AttributeError: 'Host' object has no attribute 'dns1'
+
+2022-03-02 12:01:12,431 - nornir.core.task -    ERROR -      start() - Host 'localhost2': task 'my_task' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/matt.miller/Documents/git/practice/Kirk_Byers_Nornir_Automation/env/lib/python3.8/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "week1exercise.py", line 36, in my_task
+    print("dns1: {}".format(host.dns1))
+  File "/Users/matt.miller/Documents/git/practice/Kirk_Byers_Nornir_Automation/env/lib/python3.8/site-packages/nornir/core/inventory.py", line 368, in __getattribute__
+    return object.__getattribute__(self, name)
+AttributeError: 'Host' object has no attribute 'dns1'
+
+2022-03-02 12:01:12,431 - nornir.core.task -    ERROR -      start() - Host 'localhost4': task 'my_task' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/matt.miller/Documents/git/practice/Kirk_Byers_Nornir_Automation/env/lib/python3.8/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "week1exercise.py", line 36, in my_task
+    print("dns1: {}".format(host.dns1))
+  File "/Users/matt.miller/Documents/git/practice/Kirk_Byers_Nornir_Automation/env/lib/python3.8/site-packages/nornir/core/inventory.py", line 368, in __getattribute__
+    return object.__getattribute__(self, name)
+AttributeError: 'Host' object has no attribute 'dns1'
+
+2022-03-02 12:03:03,991 -  nornir.core -     INFO -        run() - Running task 'my_task' with args {} on 4 hosts
+2022-03-02 12:03:03,994 - nornir.core.task -    ERROR -      start() - Host 'localhost2': task 'my_task' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/matt.miller/Documents/git/practice/Kirk_Byers_Nornir_Automation/env/lib/python3.8/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "week1exercise.py", line 33, in my_task
+    print("dns1: {}".format(host.data.dns1))
+AttributeError: 'dict' object has no attribute 'dns1'
+
+2022-03-02 12:03:03,994 - nornir.core.task -    ERROR -      start() - Host 'localhost1': task 'my_task' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/matt.miller/Documents/git/practice/Kirk_Byers_Nornir_Automation/env/lib/python3.8/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "week1exercise.py", line 33, in my_task
+    print("dns1: {}".format(host.data.dns1))
+AttributeError: 'dict' object has no attribute 'dns1'
+
+2022-03-02 12:03:03,994 - nornir.core.task -    ERROR -      start() - Host 'localhost4': task 'my_task' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/matt.miller/Documents/git/practice/Kirk_Byers_Nornir_Automation/env/lib/python3.8/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "week1exercise.py", line 33, in my_task
+    print("dns1: {}".format(host.data.dns1))
+AttributeError: 'dict' object has no attribute 'dns1'
+
+2022-03-02 12:03:03,994 - nornir.core.task -    ERROR -      start() - Host 'localhost3': task 'my_task' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/matt.miller/Documents/git/practice/Kirk_Byers_Nornir_Automation/env/lib/python3.8/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "week1exercise.py", line 33, in my_task
+    print("dns1: {}".format(host.data.dns1))
+AttributeError: 'dict' object has no attribute 'dns1'
+
+2022-03-02 12:03:24,824 -  nornir.core -     INFO -        run() - Running task 'my_task' with args {} on 4 hosts
+2022-03-02 12:03:24,827 - nornir.core.task -    ERROR -      start() - Host 'localhost3': task 'my_task' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/matt.miller/Documents/git/practice/Kirk_Byers_Nornir_Automation/env/lib/python3.8/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "week1exercise.py", line 34, in my_task
+    print("dns2: {}".format(host.dns2))
+  File "/Users/matt.miller/Documents/git/practice/Kirk_Byers_Nornir_Automation/env/lib/python3.8/site-packages/nornir/core/inventory.py", line 368, in __getattribute__
+    return object.__getattribute__(self, name)
+AttributeError: 'Host' object has no attribute 'dns2'
+
+2022-03-02 12:03:24,827 - nornir.core.task -    ERROR -      start() - Host 'localhost2': task 'my_task' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/matt.miller/Documents/git/practice/Kirk_Byers_Nornir_Automation/env/lib/python3.8/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "week1exercise.py", line 34, in my_task
+    print("dns2: {}".format(host.dns2))
+  File "/Users/matt.miller/Documents/git/practice/Kirk_Byers_Nornir_Automation/env/lib/python3.8/site-packages/nornir/core/inventory.py", line 368, in __getattribute__
+    return object.__getattribute__(self, name)
+AttributeError: 'Host' object has no attribute 'dns2'
+
+2022-03-02 12:03:24,828 - nornir.core.task -    ERROR -      start() - Host 'localhost4': task 'my_task' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/matt.miller/Documents/git/practice/Kirk_Byers_Nornir_Automation/env/lib/python3.8/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "week1exercise.py", line 34, in my_task
+    print("dns2: {}".format(host.dns2))
+  File "/Users/matt.miller/Documents/git/practice/Kirk_Byers_Nornir_Automation/env/lib/python3.8/site-packages/nornir/core/inventory.py", line 368, in __getattribute__
+    return object.__getattribute__(self, name)
+AttributeError: 'Host' object has no attribute 'dns2'
+
+2022-03-02 12:03:24,828 - nornir.core.task -    ERROR -      start() - Host 'localhost1': task 'my_task' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/matt.miller/Documents/git/practice/Kirk_Byers_Nornir_Automation/env/lib/python3.8/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "week1exercise.py", line 34, in my_task
+    print("dns2: {}".format(host.dns2))
+  File "/Users/matt.miller/Documents/git/practice/Kirk_Byers_Nornir_Automation/env/lib/python3.8/site-packages/nornir/core/inventory.py", line 368, in __getattribute__
+    return object.__getattribute__(self, name)
+AttributeError: 'Host' object has no attribute 'dns2'
+
+2022-03-02 12:03:44,960 -  nornir.core -     INFO -        run() - Running task 'my_task' with args {} on 4 hosts

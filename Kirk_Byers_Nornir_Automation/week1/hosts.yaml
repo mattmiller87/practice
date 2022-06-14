@@ -1,0 +1,16 @@
+---
+localhost1:
+  hostname: localhost
+  groups:
+    - ios
+  data:
+    dns1: 8.8.8.8
+localhost2:
+  hostname: localhost
+  groups:
+    - ios
+localhost3:
+  hostname: localhost
+localhost4:
+  hostname: localhost
+
